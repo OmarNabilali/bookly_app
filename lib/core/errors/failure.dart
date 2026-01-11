@@ -43,8 +43,12 @@ class ServerFailure extends Failure {
   }) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
       return ServerFailure(errMessage: response['error']['message']);
-    } else if (statusCode == 500) {
+    } else if (statusCode == 404) {
       return ServerFailure(errMessage: 'Page Not Found');
+    } else if (statusCode == 500) {
+      return ServerFailure(
+        errMessage: 'there is the problem with Server.please try again',
+      );
     } else {
       return ServerFailure(
         errMessage: 'Oops,there was an erro,Please try Again',

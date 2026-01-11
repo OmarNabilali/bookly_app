@@ -1,12 +1,8 @@
-
-import 'package:bookly_app/features/data/models/bookmodel/bookmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class CustomRatingWidget extends StatelessWidget {
-  const CustomRatingWidget({super.key, required this.bookmodel});
-  final Bookmodel bookmodel;
+  const CustomRatingWidget({super.key});
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -29,8 +25,7 @@ class CustomRatingWidget extends StatelessWidget {
         GestureDetector(
           onTap: () async {
             Uri url = Uri.parse(
-              bookmodel.volumeInfo.previewLinkel ??
-                  'http://books.google.com.eg/books?id=glg_AQAAIAAJ&dq=subject:Programming&hl=&cd=1&source=gbs_api',
+              'http://books.google.com.eg/books?id=glg_AQAAIAAJ&dq=subject:Programming&hl=&cd=1&source=gbs_api',
             );
             if (await canLaunchUrl(url)) {
               await launchUrl(url);

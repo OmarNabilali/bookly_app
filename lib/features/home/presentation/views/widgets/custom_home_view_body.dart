@@ -1,4 +1,3 @@
-
 import 'package:bookly_app/core/utils/app_assets.dart';
 import 'package:bookly_app/core/utils/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';

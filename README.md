@@ -1,16 +1,91 @@
-# bookly_app
+# 📚 Bookly App
 
-A new Flutter project.
+Bookly is a Flutter application for browsing and searching books using the **Google Books API**.  
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- 📖 Display Featured Books
+- 🔥 Display Best Seller Books
+- 🔍 Search for books
+- 📘 Book details screen
+- 📚 Similar books suggestions
+- 🌐 REST API integration
+- ⚠️ Error handling and loading states
+- 🎨 Clean and responsive UI
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🧠 Architecture
+
+The app is built using **Clean Architecture** principles:
+
+
+├── core
+│ ├── errors
+│ ├── utils
+│ ├── widgets
+│ └── services
+├── features
+│ ├── home
+│ │ ├── data
+│ │ ├── domain
+│ │ └── presentation
+│ └── search
+│ ├── data
+│ ├── domain
+│ └── presentation
+└── main.dart
+
+
+---
+
+## 🧩 State Management
+
+- **Flutter Bloc**
+- **Cubit**
+
+Each feature has its own Cubit to manage states such as:
+- Loading
+- Success
+- Failure
+
+---
+
+## 🌐 API Used
+
+- **Google Books API**
+
+---
+
+## 🛠️ Packages Used
+
+- flutter_bloc
+- dio
+- go_router
+- cached_network_image
+- equatable
+- get_it
+
+---
+
+## 📸 Screenshots
+
+> Add app screenshots here
+
+---
+
+## ▶️ Getting Started
+
+### Prerequisites
+- Flutter SDK
+- Dart
+- Android Studio or VS Code
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone  https://github.com/OmarNabilali/bookly_app.git

@@ -1,35 +1,43 @@
+import 'package:bookly_app/features/home/domain/entitys/books_entitys.dart';
+
 import 'access_info.dart';
 import 'sale_info.dart';
 import 'search_info.dart';
 import 'volume_info.dart';
 
-class Bookmodel {
+class BookModel extends BookEntitys {
   String? kind;
   String? id;
   String? etag;
   String? selfLink;
-  VolumeInfo volumeInfo;
+  VolumeInfo? volumeInfo;
   SaleInfo? saleInfo;
   AccessInfo? accessInfo;
   SearchInfo? searchInfo;
 
-  Bookmodel({
+  BookModel({
     this.kind,
     this.id,
     this.etag,
     this.selfLink,
-    required this.volumeInfo,
+    this.volumeInfo,
     this.saleInfo,
     this.accessInfo,
     this.searchInfo,
-  });
+  }) : super(
+         imgUrl: volumeInfo!.imageLinks?.thumbnail ?? '',
+         author: volumeInfo.authors?.first ?? '',
+         title: volumeInfo.title!,
+       );
 
-  factory Bookmodel.fromJson(Map<String, dynamic> json) => Bookmodel(
+  factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
     kind: json['kind'] as String?,
     id: json['id'] as String?,
     etag: json['etag'] as String?,
     selfLink: json['selfLink'] as String?,
-    volumeInfo: VolumeInfo.fromJson(json['volumeInfo'] as Map<String, dynamic>),
+    volumeInfo: json['volumeInfo'] == null
+        ? null
+        : VolumeInfo.fromJson(json['volumeInfo'] as Map<String, dynamic>),
     saleInfo: json['saleInfo'] == null
         ? null
         : SaleInfo.fromJson(json['saleInfo'] as Map<String, dynamic>),
@@ -46,7 +54,7 @@ class Bookmodel {
     'id': id,
     'etag': etag,
     'selfLink': selfLink,
-    'volumeInfo': volumeInfo.toJson(),
+    'volumeInfo': volumeInfo?.toJson(),
     'saleInfo': saleInfo?.toJson(),
     'accessInfo': accessInfo?.toJson(),
     'searchInfo': searchInfo?.toJson(),
